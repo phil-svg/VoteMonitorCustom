@@ -28,7 +28,7 @@ async function fetchAndNotify_New_Votes() {
 
     if (typeof proposal.metadata !== 'string' || proposal.metadata.length < 5) continue;
 
-    if (proposal.metadata.includes('Add a gauge')) continue; // Don't print Gauge Votes
+    // if (proposal.metadata.includes('Add a gauge')) continue; // Don't print Gauge Votes
 
     const formattedProposal = await formatProposalData(proposal, proposal.metadata);
     eventEmitter.emit('newMessage', formattedProposal);
@@ -50,7 +50,7 @@ async function fetchAndNotify_Passed_Votes() {
 
     if (typeof proposal.metadata !== 'string' || proposal.metadata.length < 5) continue;
 
-    if (proposal.metadata.includes('Add a gauge')) continue; // Don't print Gauge Votes
+    // if (proposal.metadata.includes('Add a gauge')) continue; // Don't print Gauge Votes
 
     const formattedPassedVote = await formatPassedVoteData(proposal, proposal.metadata);
     if (formattedPassedVote === 'denied') {
